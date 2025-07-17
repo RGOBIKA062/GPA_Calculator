@@ -39,6 +39,27 @@
             });
         }
         window.addEventListener("load", loadDefaultCourses);
+
+        function addCourse() {
+            let table = document.getElementById('courseTable');
+            let row = document.createElement('tr');
+            row.innerHTML = `
+                <td><input type="text" class="form-control" placeholder="Course Code"></td>
+                <td><input type="text" class="form-control" placeholder="Course Name"></td>
+                <td><input type="number" class="form-control" placeholder="Credits"></td>
+                <td>
+                    <select class="form-select grade">
+                        <option value="10">O</option>
+                        <option value="9">A+</option>
+                        <option value="8.5">A</option>
+                        <option value="8">B+</option>
+                        <option value="7">B</option>
+                        <option value="6">C</option>
+                    </select>
+                </td>
+            `;
+            table.appendChild(row);
+        }
     </script>
 </head>
 <body>
@@ -55,6 +76,7 @@
             </thead>
             <tbody id="courseTable"></tbody>
         </table>
+        <button class="btn btn-success" onclick="addCourse()">Add Course</button>
     </div>
 </body>
 </html>
